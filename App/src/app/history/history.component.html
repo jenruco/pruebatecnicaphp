@@ -1,0 +1,37 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Despachar</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body modal-xl">
+		<div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Área</th>
+            <th scope="col">Trámite</th>
+            <th scope="col">Observación</th>
+            <th scope="col">Comentario</th>
+            <th scope="col">Archivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let turn of turns">
+            <td>{{turn.name}}</td>
+            <td>{{turn.area}}</td>
+            <td>{{turn.procedure_}}</td>
+            <td>{{turn.observation}}</td>
+            <td>{{turn.comment}}</td>
+            <td> <button type="button" (click)="downloadPdf(turn.file)" class="btn btn-link">Descargar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	</div>
+</ng-template>
+<div class="m-0 row justify-content-center">
+  <button class="btn btn-lg btn-outline-primary col-sm-2" (click)="open(content)">Ver Historial</button>
+</div>
+
+

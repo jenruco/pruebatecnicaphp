@@ -1,0 +1,47 @@
+<form class="m-0 row justify-content-center" #turnForm="ngForm" (ngSubmit)="createTurn()">
+
+  <div class="col-sm-10 col-auto">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" name="name_turn" id="name_turn" [(ngModel)]="turn.name">
+    </div>
+    <div class="form-group">
+      <label for="are">Area</label>
+      <input type="text" class="form-control" name="area_turn" id="area_turn" [(ngModel)]="turn.area">
+    </div>
+    <div class="form-group">
+      <label for="procedure_">Trámite</label>
+      <input type="text" class="form-control" name="procedure_turn" id="procedure_turn" [(ngModel)]="turn.procedure_">
+    </div>
+    <div class="form-group">
+      <label for="obsrevation">Observación</label>
+      <textarea cols="20" class="form-control" rows="5" type="text" name="observation_turn" id="observation_turn" [(ngModel)]="turn.observation"></textarea>
+    </div><br>
+
+    <input type="submit" class="btn btn-primary" value="Guardar">
+  </div>
+</form>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Área</th>
+        <th scope="col">Trámite</th>
+        <th scope="col">Observación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let turn of turns">
+        <td>{{turn.name}}</td>
+        <td>{{turn.area}}</td>
+        <td>{{turn.procedure_}}</td>
+        <td>{{turn.observation}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-modal [turn]="turns[lastTurn]" (dispachTurn)="dispatch($event)"></app-modal>
+<app-history></app-history>

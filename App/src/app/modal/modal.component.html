@@ -1,0 +1,44 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Despachar</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" name="name_turn" id="name_turn" [(ngModel)]="turn.name">
+        </div>
+        <div class="form-group">
+          <label for="are">Area</label>
+          <input type="text" class="form-control" name="area_turn" id="area_turn" [(ngModel)]="turn.area">
+        </div>
+        <div class="form-group">
+          <label for="procedure_">Trámite</label>
+          <input type="text" class="form-control" name="procedure_turn" id="procedure_turn" [(ngModel)]="turn.procedure_">
+        </div>
+        <div class="form-group">
+          <label for="obsrevation">Observación</label>
+          <textarea cols="20" class="form-control" rows="5" type="text" name="observation_turn" id="observation_turn" [(ngModel)]="turn.observation"></textarea>
+        </div>
+				<div class="form-group">
+          <label for="comment">Comentario</label>
+          <textarea cols="60" class="form-control" rows="4" type="text" name="comment" id="comment" [(ngModel)]="turn.comment"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="formFile" class="form-label">Archivo</label>
+          <input class="file-input" accept="application/pdf" type="file" id="formFile" (change)="getFile($event)">
+        </div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="dispach()">Guardar</button>
+	</div>
+</ng-template>
+<div class="m-0 row justify-content-center">
+  <button class="btn btn-lg btn-outline-primary col-sm-2" (click)="open(content)">Depachar</button>
+</div>
+
+
